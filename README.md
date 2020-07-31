@@ -2,7 +2,7 @@
 Sends a message once  a day reminding students to fill out the RIT health screen
 
 # Setup
-Add the bot to the Discord server in question using this link (it only needs send message permissions):
+Add the bot to the Discord server in question using this link (only send message permissions, don't worry):
 https://discord.com/api/oauth2/authorize?client_id=738557873801527357&permissions=2048&scope=bot
 
 Then create some sort of channel for the bot to send messages in and yell at Sam to hardcode that channel id into the bot.
