@@ -8,6 +8,9 @@ class MyClient(discord.Client):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
+        # quote file
+        self.quotes = open("quotes.txt", "r").read().splitlines()
+
         # create the background task and run it in the background
         self.bg_task = self.loop.create_task(self.my_background_task())
 
@@ -22,11 +25,12 @@ class MyClient(discord.Client):
         channel = self.get_channel(738558729255125004)  # <- Notification Channel ID
 
         while not self.is_closed():
-            quote = random.choice(open("quotes.txt", "r").read().splitlines())
-            message = "Do The Health Screen: https://www.rit.edu/ready/daily-health-screen \n" + quote
+
+            quote = random.choice(self.quotes)  # Pick from one of the glorious quotes
+            message = "Do The Health Screen: https://www.rit.edu/ready/daily-health-screen" + "\n" + quote
 
             await channel.send(message)
-            await asyncio.sleep(1)  # Task Runs Once A Day
+            await asyncio.sleep(5)  # Task Runs Once A Day
 
 
 client = MyClient()
