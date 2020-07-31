@@ -1,5 +1,6 @@
 import asyncio
 import random
+
 import discord
 
 
@@ -26,7 +27,6 @@ class MyClient(discord.Client):
 
             await channel.send(message)
             await asyncio.sleep(86400)  # Task Runs Once A Day
-
 
 
 client = MyClient()
