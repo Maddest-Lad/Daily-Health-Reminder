@@ -1,4 +1,5 @@
 import asyncio
+import random
 import discord
 
 
@@ -20,9 +21,12 @@ class MyClient(discord.Client):
         channel = self.get_channel(738558729255125004)  # <- Notification Channel ID
 
         while not self.is_closed():
-            message = "Do The Health Screen: https://www.rit.edu/ready/daily-health-screen"
+            quote = random.choice(open('file.txt').read().splitlines())
+            message = "Do The Health Screen: https://www.rit.edu/ready/daily-health-screen \n" + quote
+
             await channel.send(message)
             await asyncio.sleep(86400)  # Task Runs Once A Day
+
 
 
 client = MyClient()
