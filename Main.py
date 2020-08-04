@@ -27,10 +27,10 @@ class MyClient(discord.Client):
         while not self.is_closed():
 
             quote = random.choice(self.quotes)  # Pick from one of the glorious quotes
-            message = "Do The Health Screen: https://www.rit.edu/ready/daily-health-screen" + "\n" + quote
+            message = "https://www.rit.edu/ready/daily-health-screen" + "\n" + quote
 
             await channel.send(message)
-            await asyncio.sleep(5)  # Task Runs Once A Day
+            await asyncio.sleep(86400)  # Task Runs Once A Day
 
 
 client = MyClient()
